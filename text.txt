@@ -1,4 +1,4 @@
 sample
 A:5
-B: 2
+B:
 C:3
