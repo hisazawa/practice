@@ -1,70 +1,63 @@
-# 第２３回  問１
-- sscanf
+Certify Memo
+* **sscanf**  
 文字列workを数値year、monthに分割する。
 ---------------------------------------------
-char work[128];
-int year;
-int month;
+char work[128];  
+int year;  
+int month;  
 sscanf(work, "%4d%2d", &year, &month);
 
-- sprintf
+* **sprintf**  
 数値year、monthを文字列workに書き込む
 ---------------------------------------------
-sprintf(work, "%4d%2d", year - 5, month);
+sprintf(work, "%04d%02d", year - 5, month);
 
-- fopen
+* **fopen**  
 ファイルをOPENする。(OPENしたときは後でCLOSEする)
 ---------------------------------------------
-fp = fopen("keisoku.tbl", "rb");
-rb ：READのみ、バイナリファイル対応
-r+ ：READ/WRITE、テキストファイル対応
+fp = fopen("keisoku.tbl", "rb");  
+rb ：READのみ、バイナリファイル対応  
+r+ ：READ/WRITE、テキストファイル対応  
 
-- strcmp
+* **strcmp**
 文字列を比較する。(数値も比較できる)
 ----------------------------------------------
 strcmp(sort_keisoku_tbl[i].nyuukai_date, work)) <= 0
 
-
-# 第２３回  問２
-- fscanf
+* **fscanf**
 ファイル(fp)の内容を構造体pに書き込む
 -----------------------------------------------
-fscanf(fp, "%d", &p->kaiin_code);
-fscanf(fp, "%d", &p->count); ←fpは次の行に進んでいる
+fscanf(fp, "%d", &p->kaiin_code);  
+fscanf(fp, "%d", &p->count); ←fpは次の行に進んでいる  
 
-一行に空白区切りの文字列が複数ある場合
-fscanf(fp, "%lf %lf %lf %lf %lf",
-  &huka_sisuu[i][0], &huka_sisuu[i][1], &huka_sisuu[i][2],
+一行に空白区切りの文字列が複数ある場合  
+fscanf(fp, "%lf %lf %lf %lf %lf",  
+  &huka_sisuu[i][0], &huka_sisuu[i][1], &huka_sisuu[i][2],  
   &huka_sisuu[i][3], &huka_sisuu[i][4]);
 
-- fseek
+* **fseek**  
 ファイルポインタの位置を指定した位置に移動させる
 -----------------------------------------------
-fp = fopen("keisoku.tbl", "r+b");
-fptr = (codedata_tbl[import_tbl.kaiin_code - 1] - 1)
-        \* sizeof(struct KEISOKU_TBL);
-fseek(fp, fptr, SEEK_SET);
-fwrite(&import_tbl, sizeof(struct KEISOKU_TBL), 1, fp);
+fp = fopen("keisoku.tbl", "r+b");  
+fptr = (codedata_tbl[import_tbl.kaiin_code - 1] - 1)  
+        \* sizeof(struct KEISOKU_TBL);  
+fseek(fp, fptr, SEEK_SET);  
+fwrite(&import_tbl, sizeof(struct KEISOKU_TBL), 1, fp);  
 
-
-# 第２４回  問１
-- toupper
-小文字を大文字に変換する
+* **toupper**  
+小文字を大文字に変換する  
 -------------------------------------------------
 toupper(work[0]) == 'L'
 
-
-# 第２６回  問１
-- printf
-表示桁数は<全体の幅>.<小数点以下の幅>で指定する
-<小数点以下の幅>は、文字列の場合には最大文字数の意味になる。
+* **printf**  
+表示桁数は<全体の幅>.<小数点以下の幅>で指定する。  
+<小数点以下の幅>は、文字列の場合には最大文字数の意味になる。  
 --------------------------------------------------
-printf( "\n   %2d %4.4s", i + 1,
+printf( "\n   %2d %4.4s", i + 1,  
     &sort_keisoku_tbl[ i ].max_date[ 0 ]);
 
-# 第２７回  問２
-- fseek
+* **fseek**  
 ファイルポインタの位置を指定した位置に移動させる
 ---------------------------------------------------
-fopen->freadでファイルポインタは移動するので、fread後に
+fopen->freadでファイルポインタは移動するので、fread後に  
 fwriteするときはファイルポインタを変更する必要がある。
