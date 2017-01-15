@@ -57,11 +57,11 @@ printf( "\n   %2d %4.4s", i + 1,
     &sort_keisoku_tbl[ i ].max_date[ 0 ]);
 
 * **fseek**  
-**ファイルポインタの位置を指定した位置に移動させる**
+**ファイルポインタの位置を指定した位置に移動させる**  
 ～～～～～～～～～～～～～～～～～～～～～～～～～  
 fopen->freadでファイルポインタは移動するので、fread後に  
 fwriteするときはファイルポインタを変更する必要がある。
 
-* **割り算時の小数点表示**
-doble average
-average = (double)sum/(double)cnt;
+* **割り算時の小数点表示**  
+doble average  
+average = (double)sum/(double)cnt;  
