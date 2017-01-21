@@ -64,4 +64,10 @@ fwriteするときはファイルポインタを変更する必要がある。
 
 * **割り算時の小数点表示**  
 doble average  
-average = (double)sum/(double)cnt;  
+average = (double)sum/(double)cnt;
+
+* **その他注意点**
+・ポインタと実数の間違い
+・ファイルクローズし忘れ
+・変数の初期化(必要な変数のみ)
+・割り算(0で割らないこと)  
